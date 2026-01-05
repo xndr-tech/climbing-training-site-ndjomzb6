@@ -1,0 +1,105 @@
+{
+  "version": "2.0",
+  "schemaVersion": "2.1",
+  "siteId": "ndjomzb6",
+  "name": "Climbing Training Site",
+  "description": "A website for training climbimg, including a hang board trainng app.",
+  "siteType": "one-page",
+  "colorScheme": "sage",
+  "font": "Lexend",
+  "tags": [
+    "training",
+    "fitness"
+  ],
+  "tools": [],
+  "credentialSetId": "",
+  "model": "gemini-2.5-flash",
+  "customHtml": false,
+  "createdAt": 1767654467729,
+  "updatedAt": 1767654467729,
+  "buildMetadata": {
+    "levrVersion": "0.5.3",
+    "templateVersion": "2.0.0",
+    "templateType": "site",
+    "promptVersions": {
+      "html": "2.0.0",
+      "tags": "2.0.0"
+    },
+    "workflowVersions": {
+      "deploy": "1.2.0"
+    },
+    "buildTimestamp": 1767654467729,
+    "buildId": "ndjomzb6",
+    "model": "gemini-2.5-flash",
+    "modelProvider": "gemini",
+    "modelInfo": {
+      "name": "gemini-2.5-flash",
+      "provider": "gemini",
+      "family": "gemini-2.5",
+      "version": "2.5",
+      "variant": "flash"
+    }
+  },
+  "source": {
+    "github": {
+      "owner": "xndr-tech",
+      "repo": "climbing-training-site-ndjomzb6",
+      "branch": "main",
+      "url": "https://github.com/xndr-tech/climbing-training-site-ndjomzb6"
+    },
+    "cloudflare": {
+      "accountId": "b6af5ded35131641c4ebe125bbbf0250",
+      "workerName": "climbing-training-site-ndjomzb6",
+      "subdomain": "",
+      "previewUrl": ""
+    },
+    "credentialSetId": ""
+  },
+  "buildHistory": [
+    {
+      "buildId": "ndjomzb6",
+      "timestamp": 1767654467729,
+      "type": "initial",
+      "model": "gemini-2.5-flash",
+      "levrVersion": "0.5.3",
+      "success": true
+    }
+  ],
+  "workflows": {
+    "version": "1.0.0",
+    "levrVersion": "0.5.3",
+    "modules": {
+      "deploy": {
+        "enabled": true,
+        "version": "1.2.0",
+        "file": "deploy.yml"
+      },
+      "preview": {
+        "enabled": true,
+        "version": "1.2.0",
+        "file": "preview.yml"
+      },
+      "qa": {
+        "enabled": true,
+        "version": "1.1.0",
+        "file": "qa.yml"
+      },
+      "seo": {
+        "enabled": false,
+        "version": "1.1.0",
+        "file": "seo.yml"
+      },
+      "lighthouse": {
+        "enabled": false,
+        "version": "1.1.0",
+        "file": "lighthouse.yml"
+      },
+      "security": {
+        "enabled": false,
+        "version": "1.0.0",
+        "file": "security.yml"
+      }
+    },
+    "generatedAt": 1767654467729
+  }
+}

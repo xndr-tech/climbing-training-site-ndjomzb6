@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Climbing Training Site offers comprehensive training resources, including a powerful hang board training app, to help climbers of all levels improve their strength and technique.">
+    <title>Climbing Training Site</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #8ecfad; /* User specified: #8ecfad */
+            --secondary-color: #f0f7f4; /* User specified: #f0f7f4 */
+            --accent-color: #dbebe6; /* A lighter shade based on the new secondary color */
+            --dark-color: #2c3e50; /* Dark Blue-Gray */
+            --text-color: #34495e; /* Medium Blue-Gray */
+            --error-color: #e74c3c; /* Red */
+            --font-family: 'Lexend', sans-serif;
+            --header-height: 80px;
+        }
+
+        /* Base Reset & Typography */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-family);
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--secondary-color);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.5rem; }
+        h3 { font-size: 2rem; }
+        h4 { font-size: 1.5rem; }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: var(--dark-color);
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-color);
+            color: var(--secondary-color);
+            text-decoration: none;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--dark-color);
+            color: var(--secondary-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: var(--header-height);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .navbar-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .navbar-toggle span {
+            height: 3px;
+            width: 25px;
+            background: var(--secondary-color);
+            margin-bottom: 4px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-toggle.open span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+        .navbar-toggle.open span:nth-child(2) {
+            opacity: 0;
+        }
+        .navbar-toggle.open span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 25px;
+        }
+
+        nav ul li a {
+            color: var(--secondary-color);
+            font-weight: 400;
+            padding: 5px 0;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Sections General */
+        section {
+            padding: 80px 0;
+            display: flex;
+            align-items: center; /* Vertically center content if section is shorter than viewport */
+            min-height: 50vh; /* Ensure some minimum height for consistency */
+        }
+
+        section:nth-of-type(even) { /* Use nth-of-type for better robustness with other elements */
+            background-color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        #home {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1549722368-22f30b91d34c?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+            color: var(--secondary-color);
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        #home .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%; /* Important for centering content within the container */
+        }
+
+        #home h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        #home p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            max-width: 800px;
+            color: var(--secondary-color);
+        }
+
+        /* Features Section */
+        #features .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        #features .feature-item {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        #features .feature-item:hover {
+            transform: translateY(-10px);
+        }
+
+        #features .feature-item i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        #features .feature-item h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.8rem;
+        }
+
+        /* About Section */
+        #about .content-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        #about .content-wrapper img {
+            max-width: 500px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            flex-shrink: 0;
+            height: auto; /* Ensures image scales proportionally */
+        }
+
+        #about .text-content {
+            flex-grow: 1;
+        }
+
+        /* Services Section */
+        #services .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 3rem;
+        }
+
+        #services .service-item {
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        #services .service-item:hover {
+            transform: translateY(-10px);
+        }
+
+        #services .service-item i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        #services .service-item h3 {
+            color: var(--dark-color);
+            margin-bottom: 0.8rem;
+        }
+
+        /* Contact Section */
+        #contact .contact-content {
+            display: flex;
+            gap: 50px;
+            margin-top: 3rem;
+            flex-wrap: wrap; /* Allows items to wrap on smaller screens */
+        }
+
+        #contact .contact-form {
+            flex: 2;
+            min-width: 300px;
+            background-color: var(--secondary-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        #contact .contact-info {
+            flex: 1;
+            min-width: 250px;
+            background-color: var(--accent-color);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        #contact .form-group {
+            margin-bottom: 20px;
+        }
+
+        #contact .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+
+        #contact .form-group input[type="text"],
+        #contact .form-group input[type="email"],
+        #contact .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-family: var(--font-family);
+            font-size: 1rem;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+
+        #contact .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        #contact .contact-info p {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: flex-start; /* Align icon to top if text wraps */
+            gap: 10px;
+        }
+
+        #contact .contact-info i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        #contact .social-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        #contact .social-links a {
+            font-size: 2rem;
+            color: var(--dark-color);
+            transition: color 0.3s ease;
+        }
+
+        #contact .social-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: var(--secondary-color);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        footer .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        footer .footer-links ul {
+            display: flex;
+            margin-top: 1rem;
+        }
+
+        footer .footer-links ul li {
+            margin: 0 15px;
+        }
+
+        footer .footer-links ul li a {
+            color: var(--secondary-color);
+            transition: color 0.3s ease;
+        }
+
+        footer .footer-links ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        footer p {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: row; /* Keep logo and toggle on one line */
+            }
+
+            .navbar-toggle {
+                display: flex;
+            }
+
+            nav ul {
+                display: none; /* Hide by default */
+                flex-direction: column;
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--dark-color);
+                box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+                padding: 20px 0;
+                border-top: 1px solid rgba(255,255,255,0.1);
+            }
+
+            nav ul.open {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            #home h1 {
+                font-size: 3rem;
+            }
+
+            #home p {
+                font-size: 1.2rem;
+            }
+
+            #about .content-wrapper {
+                flex-direction: column;
+            }
+
+            #about .content-wrapper img {
+                max-width: 100%;
+                margin-bottom: 2rem;
+            }
+
+            #contact .contact-content {
+                flex-direction: column;
+            }
+
+            #contact .contact-form,
+            #contact .contact-info {
+                min-width: unset;
+                width: 100%;
+            }
+
+            footer .footer-links ul {
+                flex-direction: column;
+            }
+
+            footer .footer-links ul li {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 500px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 2rem; }
+            h3 { font-size: 1.5rem; }
+            section {
+                padding: 60px 0;
+            }
+
+            #home h1 {
+                font-size: 2.8rem;
+            }
+
+            #home p {
+                font-size: 1rem;
+            }
+            .container {
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="#" class="logo">ClimbWise</a>
+            <div class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav>
+                <ul id="navbarMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="home">
+            <div class="container">
+                <h1>Elevate Your Climb. Train Smarter, Climb Harder.</h1>
+                <p>Unlock your full potential with structured training plans and our cutting-edge hang board app. Designed for climbers, by climbers.</p>
+                <a href="#features" class="btn">Explore Our Features</a>
+            </div>
+        </section>
+
+        <section id="features">
+            <div class="container text-center">
+                <h2>Key Features to Boost Your Performance</h2>
+                <p>ClimbWise offers a suite of tools to help you reach new heights.</p>
+                <div class="grid">
+                    <div class="feature-item">
+                        <i class="fas fa-hand-rock"></i>
+                        <h3>Advanced Hang Board App</h3>
+                        <p>Personalized routines, interval timers, and session logging for maximum grip strength gains.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Progress Tracking</h3>
+                        <p>Monitor your improvements over time with detailed analytics and visualization of your training data.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-dumbbell"></i>
+                        <h3>Custom Workout Plans</h3>
+                        <p>Access a library of diverse workouts or create your own tailored plans for all climbing disciplines.</p>
+                    </div>
+                    <div class="feature-item">
+                        <i class="fas fa-book-reader"></i>
+                        <h3>Expert Training Guides</h3>
+                        <p>Learn proper technique, injury prevention, and nutrition strategies from certified climbing coaches.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <div class="content-wrapper">
+                    <img src="https://images.unsplash.com/photo-1579737402636-ee2d4df5ce6c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Climber preparing to climb" loading="lazy">
+                    <div class="text-content">
+                        <h2>About ClimbWise: Your Partner in Climbing Excellence</h2>
+                        <p>At ClimbWise, we believe that every climber, regardless of experience, deserves access to smart, effective training tools. Founded by a team of passionate climbers and software developers, our mission is to provide an intuitive platform that helps you break through plateaus and achieve your climbing goals.</p>
+                        <p>Our hang board app is the core of our offering, built with scientifically-backed protocols to maximize strength and endurance. Beyond the app, we offer comprehensive resources, from technique guides to personalized coaching, all designed to support your journey from the gym to the crag.</p>
+                        <a href="#services" class="btn">See Our Services</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container text-center">
+                <h2>Our Comprehensive Training Services</h2>
+                <p>Whether you're a beginner or an experienced send-master, ClimbWise has a service for you.</p>
+                <div class="grid">
+                    <div class="service-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h3>Hang Board Pro App</h3>
+                        <p>Unlock premium features: advanced routines, offline mode, and cloud sync for your hang board sessions.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>1-on-1 Coaching</h3>
+                        <p>Get personalized guidance from experienced climbing coaches with custom plans and video analysis.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-layer-group"></i>
+                        <h3>Structured Training Programs</h3>
+                        <p>Follow expertly designed programs for strength, power, endurance, or specific climbing goals.</p>
+                    </div>
+                    <div class="service-item">
+                        <i class="fas fa-users"></i>
+                        <h3>Community & Forum Access</h3>
+                        <p>Connect with other climbers, share tips, and get motivation from our vibrant online community.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container text-center">
+                <h2>Get in Touch & Start Your Training Journey</h2>
+                <p>Have questions or ready to elevate your climbing? Contact us today!</p>
+                <div class="contact-content">
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="btn">Send Message</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <p><i class="fas fa-envelope"></i> info@climbwise.com</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Boulder Lane, Summit City, CA 90210</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <div class="social-links">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-square"></i></a>
+                            <a href="#" aria-label="Twitter"><i class="fab fa-twitter-square"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram-square"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="logo">ClimbWise</div>
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <p>&copy; 2023 ClimbWise. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navbarToggle = document.getElementById('navbarToggle');
+            const navbarMenu = document.getElementById('navbarMenu');
+
+            // Toggle mobile navigation menu
+            navbarToggle.addEventListener('click', () => {
+                navbarMenu.classList.toggle('open');
+                navbarToggle.classList.toggle('open');
+            });
+
+            // Close navbar when a link is clicked (for mobile)
+            document.querySelectorAll('#navbarMenu a').forEach(item => {
+                item.addEventListener('click', () => {
+                    if (navbarMenu.classList.contains('open')) {
+                        navbarMenu.classList.remove('open');
+                        navbarToggle.classList.remove('open');
+                    }
+                });
+            });
+
+            // Simple form submission handler
+            const contactForm = document.getElementById('contactForm');
+            if (contactForm) {
+                contactForm.addEventListener('submit', (event) => {
+                    event.preventDefault(); // Prevent default form submission
+
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+
+                    // In a real application, you would send this data to a server
+                    console.log('Form Submitted!');
+                    console.log('Name:', name);
+                    console.log('Email:', email);
+                    console.log('Message:', message);
+
+                    alert('Thank you for your message, ' + name + '! We will get back to you soon.');
+
+                    // Clear the form
+                    contactForm.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
